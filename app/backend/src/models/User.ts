@@ -1,11 +1,15 @@
 import { model, Schema } from 'mongoose'
-import IUser from '../interfaces/IUser'
 
-const userMongooseSchema = new Schema<IUser>({
-  username: String,
-  password: String
+interface IUser {
+  username: string
+  password: string
+}
+
+const userSchema = new Schema<IUser>({
+  username: { type: String, required: true },
+  password: { type: String, required: true }
 }, { versionKey: false })
 
-const User = model<IUser>('Users', userMongooseSchema)
+const User = model<IUser>('User', userSchema)
 
 export default User
