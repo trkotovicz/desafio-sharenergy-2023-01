@@ -63,8 +63,8 @@ export default userRouter;
  *            user:
  *              type: object
  *              properties:
- *                id:
- *                  type: integer
+ *                _id:
+ *                  type: string
  *                username:
  *                  type: string
  *            token:
