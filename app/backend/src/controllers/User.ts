@@ -12,4 +12,10 @@ export default class UserController {
     const token = JwtService.createToken(user)
     res.status(StatusCodes.OK).json({ user, token })
   }
+
+  createUser = async (req: Request, res: Response) => {
+    const { username, password } = req.body
+    const user = await this.userService.createUser(username, password)
+    res.status(StatusCodes.CREATED).json(user)
+  }
 }

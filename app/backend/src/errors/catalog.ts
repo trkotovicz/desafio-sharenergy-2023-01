@@ -18,7 +18,7 @@ export type ErrorCatalog = {
 
 export const errorCatalog: ErrorCatalog = {
   EntityNotFound: {
-    message: 'Object not found',
+    message: 'Entity not found',
     httpStatus: StatusCodes.NOT_FOUND
   },
   UnauthorizedError: {

@@ -7,4 +7,4 @@ const userZodSchema = z.object({
 
 type IUserZod = z.infer<typeof userZodSchema>
 
-export default IUserZod
+export { IUserZod, userZodSchema }
