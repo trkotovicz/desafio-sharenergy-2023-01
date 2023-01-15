@@ -5,6 +5,7 @@ export enum ErrorTypes {
   UnauthorizedError = 'UnauthorizedError',
   ConflictError = 'ConflictError',
   GenericError = 'GenericError',
+  InvalidFormatError = 'InvalidFormatError'
 }
 
 interface ErrorResponseObject {
@@ -32,5 +33,9 @@ export const errorCatalog: ErrorCatalog = {
   GenericError: {
     message: 'Something wrong happend',
     httpStatus: StatusCodes.INTERNAL_SERVER_ERROR
+  },
+  InvalidFormatError: {
+    message: 'Invalid Format',
+    httpStatus: StatusCodes.BAD_REQUEST
   }
 }
