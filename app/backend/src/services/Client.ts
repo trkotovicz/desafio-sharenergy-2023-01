@@ -15,7 +15,12 @@ export default class ClientService {
     return client
   }
 
-  // findById = async (id: string): Promise<IClientZod> => {}
+  findById = async (id: string): Promise<IClientZod | unknown> => {
+    const client = await Client.findById(id)
+    if (!client) throw new Error(ErrorTypes.EntityNotFound)
+    return client
+  }
+
   // create = async (data: IClientZod): Promise<IClientZod> => {}
   // update = async (id: string, data: IClientZod): Promise<IClientZod> => {}
   // delete = async (id: string): Promise<void> => {}
