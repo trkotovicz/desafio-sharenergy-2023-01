@@ -23,5 +23,9 @@ export default class ClientService {
 
   // create = async (data: IClientZod): Promise<IClientZod> => {}
   // update = async (id: string, data: IClientZod): Promise<IClientZod> => {}
-  // delete = async (id: string): Promise<void> => {}
+
+  delete = async (id: string): Promise<void> => {
+    const client = await Client.findByIdAndDelete(id)
+    if (!client) throw new Error(ErrorTypes.ConflictError)
+  }
 }

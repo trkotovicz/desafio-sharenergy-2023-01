@@ -21,4 +21,10 @@ export default class ClientController {
     const user = await this.clientService.findById(id)
     res.status(StatusCodes.OK).json(user)
   }
+
+  delete = async (req: Request, res: Response) => {
+    const { id } = req.params
+    await this.clientService.delete(id)
+    res.status(StatusCodes.ACCEPTED).end()
+  }
 }
