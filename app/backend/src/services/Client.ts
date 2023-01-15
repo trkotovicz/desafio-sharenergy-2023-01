@@ -9,7 +9,12 @@ export default class ClientService {
     return clients
   }
 
-  // findByName = async (name: string): Promise<IClientZod> => {}
+  findByName = async (name: string): Promise<IClientZod | IClientZod[] | unknown> => {
+    const client = await Client.find({ name: { $regex: name, $options: 'i' } })
+    if (!client) throw new Error(ErrorTypes.EntityNotFound)
+    return client
+  }
+
   // findById = async (id: string): Promise<IClientZod> => {}
   // create = async (data: IClientZod): Promise<IClientZod> => {}
   // update = async (id: string, data: IClientZod): Promise<IClientZod> => {}

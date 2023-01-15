@@ -9,4 +9,10 @@ export default class ClientController {
     const users = await this.clientService.list()
     res.status(StatusCodes.OK).json(users)
   }
+
+  findByName = async (req: Request, res: Response) => {
+    const q: string = req.query.q as string
+    const user = await this.clientService.findByName(q)
+    res.status(StatusCodes.OK).json(user)
+  }
 }
