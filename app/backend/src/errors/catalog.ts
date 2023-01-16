@@ -5,7 +5,8 @@ export enum ErrorTypes {
   UnauthorizedError = 'UnauthorizedError',
   ConflictError = 'ConflictError',
   GenericError = 'GenericError',
-  InvalidFormatError = 'InvalidFormatError'
+  InvalidFormatError = 'InvalidFormatError',
+  InvalidToken = 'InvalidToken'
 }
 
 interface ErrorResponseObject {
@@ -37,5 +38,9 @@ export const errorCatalog: ErrorCatalog = {
   InvalidFormatError: {
     message: 'Invalid Format',
     httpStatus: StatusCodes.BAD_REQUEST
+  },
+  InvalidToken: {
+    message: 'Expired or invalid token',
+    httpStatus: StatusCodes.UNAUTHORIZED
   }
 }

@@ -1,30 +1,29 @@
-import 'dotenv/config';
-import * as jwt from 'jsonwebtoken';
-import IUserJwt from '../interfaces/IUserJwt';
+import 'dotenv/config'
+import * as jwt from 'jsonwebtoken'
+import IUserJwt from '../interfaces/IUserJwt'
+import { ErrorTypes } from '../errors/catalog'
 
-const secret = process.env.JWT_SECRET || 'jwt_secret';
+const secret = process.env.JWT_SECRET || 'jwt_secret'
 
 const jwtConfig = {
   expiresIn: '48h',
   algorithm: 'HS256',
-};
+}
 
 class JwtService {
   static createToken(data: IUserJwt): string {
-    const token = jwt.sign({ data }, secret as string, jwtConfig as object);
-    return token;
+    const token = jwt.sign({ data }, secret as string, jwtConfig as object)
+    return token
   }
 
   static validateToken = (token: string) => {
     try {
-      const { data } = jwt.verify(token, secret as string) as jwt.JwtPayload;
-      return data;
+      const { data } = jwt.verify(token, secret as string) as jwt.JwtPayload
+      return data
     } catch (error) {
-      const err = new Error('Token must be a valid token');
-      err.name = 'UnauthorizedError';
-      throw err;
+      if (error) throw new Error(ErrorTypes.InvalidToken)
     }
-  };
+  }
 }
 
-export default JwtService;
+export default JwtService
