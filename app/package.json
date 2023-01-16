@@ -1,4 +1,11 @@
 {
+  "name": "sharenergy",
+  "version": "1.0.0",
+  "description": "Aplicação realizada para o desafio técnico da Sharenergy",
+  "scripts": {
+    "compose:up": "docker-compose up --build",
+    "compose:down": "docker-compose down --remove-orphans"
+  },
   "devDependencies": {
     "git-commit-msg-linter": "^4.5.0"
   }
