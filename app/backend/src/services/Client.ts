@@ -35,7 +35,14 @@ export default class ClientService {
     return client
   }
 
-  // update = async (id: string, data: IClientZod): Promise<IClientZod> => {}
+  update = async (id: string, data: IClientZod): Promise<IClientZod | unknown> => {
+    validateCpf(data.cpf)
+    const parsed = clientZodSchema.safeParse(data)
+    if (!parsed.success) throw parsed.error
+
+    const client = await Client.findByIdAndUpdate(id, data)
+    return client
+  }
 
   delete = async (id: string): Promise<void> => {
     const client = await Client.findByIdAndDelete(id)

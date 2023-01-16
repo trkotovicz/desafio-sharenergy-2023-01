@@ -5,6 +5,7 @@ const clientRouter = Router()
 
 clientRouter.get('/clients/search', clientController.findByName)
 clientRouter.get('/clients/:id', clientController.findById)
+clientRouter.put('/clients/:id', clientController.update)
 clientRouter.delete('/clients/:id', clientController.delete)
 clientRouter.get('/clients', clientController.list)
 clientRouter.post('/clients', clientController.create)

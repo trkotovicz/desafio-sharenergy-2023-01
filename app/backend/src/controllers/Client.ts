@@ -28,6 +28,12 @@ export default class ClientController {
     res.status(StatusCodes.CREATED).json(client)
   }
 
+  update = async (req: Request, res: Response) => {
+    const { id } = req.params
+    await this.clientService.update(id, req.body)
+    res.status(StatusCodes.ACCEPTED).end()
+  }
+
   delete = async (req: Request, res: Response) => {
     const { id } = req.params
     await this.clientService.delete(id)
