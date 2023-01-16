@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Aplicação realizada para o desafio técnico da Sharenergy",
   "scripts": {
+    "start": "bash scripts/start.sh",
+    "kill:all": "bash scripts/kill_all.sh",
     "compose:up": "docker-compose up --build",
     "compose:down": "docker-compose down --remove-orphans"
   },
