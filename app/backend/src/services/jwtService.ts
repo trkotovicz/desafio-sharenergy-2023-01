@@ -6,7 +6,7 @@ import { ErrorTypes } from '../errors/catalog'
 const secret = process.env.JWT_SECRET || 'jwt_secret'
 
 const jwtConfig = {
-  expiresIn: '48h',
+  expiresIn: '7d',
   algorithm: 'HS256',
 }
 
