@@ -8,8 +8,8 @@ const api = axios.create({
 // ---------------------------------------------------------------------------
 // USER REQUESTS
 
-export const userToken = (parameter: string) => {
-  api.defaults.headers.common.Authorization = parameter;
+export const userToken = (token: string) => {
+  api.defaults.headers.common.Authorization = token;
 }
 
 export const userLogin = async (body: object) => {
@@ -33,37 +33,36 @@ export const userRegister = async (body: object) => {
 // ---------------------------------------------------------------------------
 // CLIENTS REQUESTS
 
-export const clientsList = async (token: string) => {
+export const clientsList = async () => {
   try {
-    const { data } = await api.get('/clients', { headers: { 'Authorization': token } });
+    const { data } = await api.get('/clients');
     return data;
   } catch (error) {
     return error;
   }
 }
 
-export const createNewClient = async (body: object, token: string) => {
+export const createNewClient = async (body: object) => {
   try {
-    const { data } = await api.post('/clients', body, { headers: { 'Authorization': token } });
+    const { data } = await api.post('/clients', body);
     return data;
   } catch (error) {
     return error;
   }
 }
 
-export const getClientById = async (id: string, token: string) => {
+export const getClientById = async (id: string) => {
   try {
-    const { data } = await api.get(`/clients/${id}`, { headers: { 'Authorization': token } });
+    const { data } = await api.get(`/clients/${id}`);
     return data;
   } catch (error) {
     return error;
   }
 }
 
-export const getClientByName = async (name: string, token: string) => {
+export const getClientByName = async (name: string) => {
   try {
     const { data } = await api.get('/clients/search', {
-      headers: { 'Authorization': token },
       params: { q: name }
       // params: { query: { q: name } }
     });
@@ -73,18 +72,18 @@ export const getClientByName = async (name: string, token: string) => {
   }
 }
 
-export const deleteClient = async (id: string, token: string) => {
+export const deleteClient = async (id: string) => {
   try {
-    const { data } = await api.delete(`/clients/${id}`, { headers: { 'Authorization': token } });
+    const { data } = await api.delete(`/clients/${id}`);
     return data;
   } catch (error) {
     return error;
   }
 }
 
-export const updateClient = async (id: string, body: object, token: string) => {
+export const updateClient = async (id: string, body: object) => {
   try {
-    const { data } = await api.put(`/clients/${id}`, body, { headers: { 'Authorization': token } });
+    const { data } = await api.put(`/clients/${id}`, body);
     return data;
   } catch (error) {
     return error;
