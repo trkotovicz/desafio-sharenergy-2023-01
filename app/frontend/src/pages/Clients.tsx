@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import IClient from "../interfaces/IClient";
 import ClientCard from "../components/ClientCard";
-import { userToken, clientsList } from "../services/apiRequests";
+import { userToken, clientsList, deleteClient, updateClient } from "../services/apiRequests";
 import { getUserSession } from "../services/sessionStorage"
 
 export default function Clients() {
@@ -17,19 +17,22 @@ export default function Clients() {
         userToken(JSON.parse(checkUser).token);
       }
       getClients();
+
+      console.log('clients :', clients)
+
     } catch (error) {
       console.error(error);
     }
   }, [])
 
-  const getClients = async () => {
+  const getClients = () => {
     clientsList().then((data) => {
       setClients(data);
     })
   }
 
   const handleUpdateBtn = async (client: IClient) => { console.log(client) }
-  const handleDeleteBtn = async (id: string) => { console.log(id) }
+  const handleDeleteBtn = (id: string) => { deleteClient(id) }
 
   return (
     <>
