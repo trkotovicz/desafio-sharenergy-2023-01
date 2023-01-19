@@ -81,7 +81,7 @@ export const deleteClient = async (id: string) => {
   }
 }
 
-export const updateClient = async (id: string, body: object) => {
+export const updateClientRequest = async (id: string, body: object) => {
   try {
     const { data } = await api.put(`/clients/${id}`, body);
     return data;
