@@ -8,6 +8,7 @@ import ClientForm from "../components/ClientForm";
 export default function Clients() {
   const [clients, setClients] = useState<IClient[] | null>([]);
   const [updateClient, setUpdateClient] = useState({} as IClient)
+  const [createClient, setCreateClient] = useState({} as IClient)
  
   useEffect(() => {
     try {
@@ -33,20 +34,21 @@ export default function Clients() {
     })
   }
 
-  const handleUpdateBtnCard = async (client: IClient) => { setUpdateClient(client) }
+  const handleUpdateBtnCard = (client: IClient) => { setUpdateClient(client) }
   
   const handleUpdateClient = async (client: IClient) => {
-    const { name, email, phone, address, cpf } = client;
-    await updateClientRequest(updateClient._id, {
-      name, email, phone, address, cpf });
-    
+    await updateClientRequest(client._id, client);
     getClients();
   }
 
-  const handleNewClient = async () => {}
+  const handleNewClient = async (client: IClient) => {
+    setCreateClient(client);
+    await createNewClient(client);
+    getClients();
+  }
 
-  const handleDeleteBtn = (id: string) => { 
-    deleteClient(id);
+  const handleDeleteBtn = async (id: string) => { 
+    await deleteClient(id);
     getClients();
   }
 
