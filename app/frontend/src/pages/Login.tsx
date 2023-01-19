@@ -18,7 +18,7 @@ export default function Login() {
     try {
       const userData = await userLogin({ username, password });
       rememberMe ? saveUserLocalStorage(userData) : saveUserSession(userData)
-      navigate('/users-api')
+      navigate('/random-users')
     } catch (error) {
       setShowHiddenLogin(true);
     }
