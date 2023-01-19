@@ -27,21 +27,21 @@ const seedClients = [
     email: 'rickzinho@c137.com',
     phone: '979751254',
     address: 'Dimension C, 137',
-    cpf: '31415926535'
+    cpf: '40064651061'
   },
   {
     name: 'Morty Smith',
     email: 'morty69@c137.com',
     phone: '906908008',
     address: 'The Wubba Lubba Dub Dub of Wall Street, 12',
-    cpf: '16900196001'
+    cpf: '19919468053'
   },
   {
     name: 'Homer Jay Simpson',
     email: 'homer@simpson.com',
     phone: '977771111',
     address: 'Evergreen Terrace, 632',
-    cpf: '79645300600'
+    cpf: '74066288030'
   }
 ]
 
