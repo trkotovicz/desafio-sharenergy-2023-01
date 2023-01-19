@@ -49,6 +49,7 @@ export default function Login() {
             <input
               className='username-input'
               type='text'
+              id='username'
               placeholder='username'
               value={ username }
               onChange={ ({target}) => setUsername(target.value) }
@@ -61,6 +62,7 @@ export default function Login() {
             <input
               className='password-input'
               type='password'
+              id='password'
               placeholder='password'
               value={ password }
               onChange={ ({target}) => setPassword(target.value) }
@@ -73,6 +75,7 @@ export default function Login() {
               <input
                 className='remember-input'
                 type='checkbox'
+                id='remember'
                 onChange={ () => setRememberMe(true) }
               />
                 {' '}

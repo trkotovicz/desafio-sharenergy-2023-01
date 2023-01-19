@@ -72,6 +72,7 @@ export default function Clients() {
           <input
             className='search-input'
             type='text'
+            id='search'
             placeholder='Name'
             value={ search }
             onChange={ (event) => setSearch(event.target.value) }

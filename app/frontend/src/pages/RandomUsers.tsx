@@ -5,16 +5,31 @@ import { fetchRandomUsers } from '../services/randomUsersApi';
 export default function RandomUsers() {
   const [users, setUsers] = useState<IUserCard | any>([]);
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState('');
+  
+    useEffect(() => {
+      getUsers();
+    }, [page]);
 
   const getUsers = async () => {
-    const data = await fetchRandomUsers(page)
+    const data = await fetchRandomUsers(page);
     setUsers(data);
   }
 
-  useEffect(() => {
-    getUsers();
-    console.log(users);
-  }, [page]);
+  const handleSearch = () => {
+    const result = users.filter(({ name, email, login }: IUserCard) => {
+      if (name.first.toLowerCase().includes(search.toLowerCase())
+        || email.toLowerCase().includes(search.toLowerCase())
+        || login.username.toLowerCase().includes(search.toLowerCase())) {
+        return search
+      }
+      return ''
+    });
+    if (result.length) {
+      return setUsers(result);
+    }
+    return getUsers();
+  }
 
   const handleNextPage = () => { setPage(page + 1) }
 
@@ -23,6 +38,27 @@ export default function RandomUsers() {
   return (
     <main>
       <h3>Random Users API</h3>
+
+      <div className='search-container'>
+        <input
+          className='search-input'
+          type='text'
+          placeholder='type a name, email or username'
+          value={ search }
+          onChange={ ({target}) => setSearch(target.value) }            
+        />
+        <button type='button' onClick={ handleSearch }>
+          SEARCH
+        </button>
+        <button
+          type='button'
+          onClick={ () => {
+            getUsers()
+            setSearch('')
+          } }>
+          CLEAR
+        </button>
+      </div>
 
       <div className='users-container'>
         { users?.map((user: IUserCard) => (
