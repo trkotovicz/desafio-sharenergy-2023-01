@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import IClient from "../interfaces/IClient";
 import ClientCard from "../components/ClientCard";
-import { userToken, clientsList, deleteClient, updateClientRequest, createNewClient } from '../services/apiRequests';
-import { getUserSession } from "../services/sessionStorage"
 import ClientForm from "../components/ClientForm";
+import IClient from "../interfaces/IClient";
+import { clientsList, createNewClient, deleteClient, getClientByName, updateClientRequest, userToken } from '../services/apiRequests';
+import { getUserSession } from "../services/sessionStorage";
 
 export default function Clients() {
   const [clients, setClients] = useState<IClient[] | null>([]);
-  const [updateClient, setUpdateClient] = useState({} as IClient)
-  const [createClient, setCreateClient] = useState({} as IClient)
+  const [updateClient, setUpdateClient] = useState({} as IClient);
+  const [createClient, setCreateClient] = useState({} as IClient);
+  const [search, setSearch] = useState('');
  
   useEffect(() => {
     try {
@@ -20,9 +21,6 @@ export default function Clients() {
         userToken(JSON.parse(checkUser).token);
       }
       getClients();
-
-      console.log('clients :', clients)
-
     } catch (error) {
       console.error(error);
     }
@@ -31,7 +29,13 @@ export default function Clients() {
   const getClients = () => {
     clientsList().then((data) => {
       setClients(data);
-    })
+    });
+  }
+
+  const handleSearch = async () => {
+    const searchClients = await getClientByName(search);
+    if (searchClients.length) return setClients(searchClients);
+    return getClients();
   }
 
   const handleUpdateBtnCard = (client: IClient) => { setUpdateClient(client) }
@@ -61,6 +65,26 @@ export default function Clients() {
         handleNewClientBtn={ handleNewClient }
         handleUpdateClientBtn={ handleUpdateClient }
       />
+
+      <div className='clients-search'>
+        <label htmlFor='search'>
+          Search
+          <input
+            className='search-input'
+            type='text'
+            placeholder='Name'
+            value={ search }
+            onChange={ (event) => setSearch(event.target.value) }
+          />
+        </label>
+        <button
+          type='button'
+          className='search-btn'
+          onClick={ handleSearch }
+        >
+          SEARCH
+        </button>
+      </div>
 
       <div className='clients-list'>
         { clients?.map((client) => (

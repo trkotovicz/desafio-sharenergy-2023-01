@@ -63,9 +63,7 @@ export const getClientById = async (id: string) => {
 export const getClientByName = async (name: string) => {
   try {
     const { data } = await api.get('/clients/search', {
-      params: { q: name }
-      // params: { query: { q: name } }
-    });
+      params: { q: name } });
     return data;
   } catch (error) {
     return error;
