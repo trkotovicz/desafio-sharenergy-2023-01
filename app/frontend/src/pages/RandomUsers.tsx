@@ -44,7 +44,7 @@ export default function RandomUsers() {
       <main className='main-random-users'>
         <h3>Random Users API</h3>
 
-        <div className='search-container'>
+        <div className='search-container' id='search-container'>
           <input
             className='search-input'
             type='text'
@@ -52,17 +52,19 @@ export default function RandomUsers() {
             value={ search }
             onChange={ ({target}) => setSearch(target.value) }            
           />
-          <button type='button' onClick={ handleSearch }>
-            SEARCH
-          </button>
-          <button
-            type='button'
-            onClick={ () => {
-              getUsers()
-              setSearch('')
-            } }>
-            CLEAR
-          </button>
+          <div className='buttons-container'>
+            <button type='button' onClick={ handleSearch }>
+              SEARCH
+            </button>
+            <button
+              type='button'
+              onClick={ () => {
+                getUsers()
+                setSearch('')
+              } }>
+              CLEAR
+            </button>
+          </div>
         </div>
 
         <div className='users-container'>
@@ -76,21 +78,22 @@ export default function RandomUsers() {
             </div>
           ))}
 
-          <button
-            className='next-page-btn'
-            type='button'
-            onClick={ handleFirstPage }
-          >
-            FIRST PAGE
-          </button>
-          <button
-            className='next-page-btn'
-            type='button'
-            onClick={ handleNextPage }
-          >
-            NEXT PAGE
-          </button>
-
+          {/* <a href='#search-container'> */}
+            <button
+              className='next-page-btn'
+              type='button'
+              onClick={ handleFirstPage }
+            >
+              FIRST PAGE
+            </button>
+            <button
+              className='next-page-btn'
+              type='button'
+              onClick={ handleNextPage }
+            >
+              NEXT PAGE
+            </button>
+          {/* </a> */}
         </div>
       </main>
 
