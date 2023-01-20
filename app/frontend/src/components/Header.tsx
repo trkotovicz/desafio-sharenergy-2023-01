@@ -16,18 +16,18 @@ export default function Header() {
   return (
     <main className='header-container'>
 
-      <img className='logo-img' src={logo_color} width='200px' alt='sharenergy logo' />
-
-      <div className='links-container'>
-        <Link to={"/random-users"}>Random Users</Link>
-        <Link to={"/http-cats"}>HTTP Cats</Link>
-        <Link to={"/random-dog"}>Random Dog</Link>
-        <Link to={"/clients-api"}>Clients API</Link>
-      </div>
+      <img className='logo-img logo-img-standard' src={logo_color} width='200px' alt='sharenergy logo' />
 
       <button className='logout-btn' onClick={ () => handleLogout() }>
         LOGOUT
       </button>
+
+      <div className='links-container'>
+        <button className='header-pages-btn' onClick={ () => navigate('/random-users') }>Users</button>
+        <button className='header-pages-btn' onClick={ () => navigate('/http-cats') }>HTTP Cats</button>
+        <button className='header-pages-btn' onClick={ () => navigate('/random-dog') }>Dog</button>
+        <button className='header-pages-btn' onClick={ () => navigate('/clients-api') }>Clients API</button>
+      </div>
 
     </main>
 
