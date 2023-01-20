@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Header from '../components/Header';
 import IUserCard from '../interfaces/IUserCard';
 import { fetchRandomUsers } from '../services/randomUsersApi';
 
@@ -36,57 +37,62 @@ export default function RandomUsers() {
   const handleFirstPage = () => { setPage(1) }
 
   return (
-    <main>
-      <h3>Random Users API</h3>
+    <>
+      <Header />
+    
+      <main>
+        <h3>Random Users API</h3>
 
-      <div className='search-container'>
-        <input
-          className='search-input'
-          type='text'
-          placeholder='type a name, email or username'
-          value={ search }
-          onChange={ ({target}) => setSearch(target.value) }            
-        />
-        <button type='button' onClick={ handleSearch }>
-          SEARCH
-        </button>
-        <button
-          type='button'
-          onClick={ () => {
-            getUsers()
-            setSearch('')
-          } }>
-          CLEAR
-        </button>
-      </div>
+        <div className='search-container'>
+          <input
+            className='search-input'
+            type='text'
+            placeholder='type a name, email or username'
+            value={ search }
+            onChange={ ({target}) => setSearch(target.value) }            
+          />
+          <button type='button' onClick={ handleSearch }>
+            SEARCH
+          </button>
+          <button
+            type='button'
+            onClick={ () => {
+              getUsers()
+              setSearch('')
+            } }>
+            CLEAR
+          </button>
+        </div>
 
-      <div className='users-container'>
-        { users?.map((user: IUserCard) => (
-          <div className='user-card' key={ user.login.uuid }>
-            <img src={ user.picture.large } alt='profile' />
-            <p>{ `${user.name.first} ${user.name.last}`}</p>
-            <p>{ user.email }</p>
-            <p>{ user.login.username }</p>
-            <p>Age: { user.dob.age }</p>
-          </div>
-        ))}
+        <div className='users-container'>
+          { users?.map((user: IUserCard) => (
+            <div className='user-card' key={ user.login.uuid }>
+              <img src={ user.picture.large } alt='profile' />
+              <p>{ `${user.name.first} ${user.name.last}`}</p>
+              <p>{ user.email }</p>
+              <p>{ user.login.username }</p>
+              <p>Age: { user.dob.age }</p>
+            </div>
+          ))}
 
-        <button
-          className='next-page-btn'
-          type='button'
-          onClick={ handleFirstPage }
-        >
-          FIRST PAGE
-        </button>
-        <button
-          className='next-page-btn'
-          type='button'
-          onClick={ handleNextPage }
-        >
-          NEXT PAGE
-        </button>
+          <button
+            className='next-page-btn'
+            type='button'
+            onClick={ handleFirstPage }
+          >
+            FIRST PAGE
+          </button>
+          <button
+            className='next-page-btn'
+            type='button'
+            onClick={ handleNextPage }
+          >
+            NEXT PAGE
+          </button>
 
-      </div>
-    </main>
+        </div>
+      </main>
+
+    </>
   )
 }

@@ -6,3 +6,5 @@ export const getUserSession = () => {
   const data = sessionStorage.getItem('user');
   return JSON.parse(data || '');
 }
+
+export const removeUserSession = () => sessionStorage.removeItem('user');

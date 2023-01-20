@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ClientCard from "../components/ClientCard";
 import ClientForm from "../components/ClientForm";
+import Header from "../components/Header";
 import IClient from "../interfaces/IClient";
 import { clientsList, createNewClient, deleteClient, getClientByName, updateClientRequest, userToken } from '../services/apiRequests';
 import { getUserSession } from "../services/sessionStorage";
@@ -58,6 +59,8 @@ export default function Clients() {
 
   return (
     <>
+      <Header />
+
       <h3>Clients List</h3>
 
       <ClientForm
