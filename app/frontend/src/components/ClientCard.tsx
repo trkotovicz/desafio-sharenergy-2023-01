@@ -15,12 +15,14 @@ export default function ClientCard({ client, handleDeleteBtn, handleUpdateBtn }:
       <p>Phone: {client.phone}</p>
       <p>Address: {client.address}</p>
       <p>CPF: {client.cpf}</p>
-      <button type='button' id='update-btn' onClick={ () => handleUpdateBtn(client) }>
-        UPDATE
-      </button>
-      <button type='button' id='delete-btn' onClick={ () => handleDeleteBtn(client._id) }>
-        DELETE
-      </button>
+      <div className='btn-container-card'>
+        <button type='button' id='update-btn' onClick={ () => handleUpdateBtn(client) }>
+          UPDATE
+        </button>
+        <button type='button' id='delete-btn' onClick={ () => handleDeleteBtn(client._id) }>
+          DELETE
+        </button>
+      </div>
     </div>
   )
 }

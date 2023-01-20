@@ -12,6 +12,22 @@
 
 #delete-btn {
   background-color: rgba(255, 0, 0, 0.66);
+  border: 1px solid rgba(255, 0, 0, 0.66);
 }
 
-/* #update-btn { } */
+.btn-container-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 1080px) {
+  .client-card {
+    background-color: rgba(126, 126, 126, 0.328);
+    border-radius: 20px;
+    box-shadow: 5px 4px #888888;
+    padding: 10px;
+    margin: 20px 40px;
+    width: 300px;
+  }
+}

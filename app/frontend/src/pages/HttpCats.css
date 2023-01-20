@@ -10,8 +10,6 @@
 }
 
 .cat-img {
-  border-radius: 8px;
-  box-shadow: 5px 4px #cdcccc;
   width: 98%;
   max-width: 80vh;
 }

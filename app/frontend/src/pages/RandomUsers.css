@@ -11,17 +11,17 @@
 .search-container {
   align-items: center;
   align-content: center;
-  background-color: #71717126;
+  background-color: #c0c0c02b;
   border-radius: 15px;
   margin: 10px;
   padding: 10px;
-  width: 50vh;
+  width: 40vh;
 }
 
 .search-container > input {
   border-radius: 5px;
   height: 20px;
-  width: 38vh;
+  width: 30vh;
 }
 
 .user-card {
@@ -35,4 +35,36 @@
 .user-avatar {
   border-radius: 100px;
   box-shadow: 2px 2px 2px 2px #D6DF28;
+}
+
+@media (min-width: 1080px) {
+  .users-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .user-card {
+    background-color: rgba(126, 126, 126, 0.328);
+    border-radius: 20px;
+    box-shadow: 5px 4px #888888;
+    padding: 10px;
+    margin: 20px 40px;
+    width: 300px;
+  }
+
+  .search-container {
+    background-color: #c0c0c02b;
+    border-radius: 15px;
+    margin: 2% 20%;
+    width: 60%;
+  }
+
+  .search-container > input {
+    border-radius: 5px;
+    height: 20px;
+    width: 50vh;
+  }
 }

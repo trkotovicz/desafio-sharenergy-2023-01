@@ -3,3 +3,13 @@
   flex-flow: row wrap;
   justify-content: center;
 }
+
+@media (min-width: 1080px) {
+  .main-client {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2% 15%;
+    width: 70%;
+  }
+}

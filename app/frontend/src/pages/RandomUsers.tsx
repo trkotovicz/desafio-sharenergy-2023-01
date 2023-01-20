@@ -78,25 +78,25 @@ export default function RandomUsers() {
             </div>
           ))}
 
-          {/* <a href='#search-container'> */}
-            <button
-              className='next-page-btn'
-              type='button'
-              onClick={ handleFirstPage }
-            >
-              FIRST PAGE
-            </button>
-            <button
-              className='next-page-btn'
-              type='button'
-              onClick={ handleNextPage }
-            >
-              NEXT PAGE
-            </button>
-          {/* </a> */}
         </div>
-      </main>
 
+        <a href='#search-container'>
+          <button
+            className='next-page-btn'
+            type='button'
+            onClick={ handleFirstPage }
+          >
+            FIRST PAGE
+          </button>
+          <button
+            className='next-page-btn'
+            type='button'
+            onClick={ handleNextPage }
+          >
+            NEXT PAGE
+          </button>
+        </a>
+      </main>
     </>
   )
 }

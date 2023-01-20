@@ -6,9 +6,32 @@
 .clients-search {
   align-items: center;
   align-content: center;
-  background-color: #71717126;
+  background-color: #c0c0c02b;
   border-radius: 15px;
   margin: 10px;
   padding: 10px;
-  width: 50vh;
+  width: 40vh;
+}
+
+@media (min-width: 1080px) {
+  .clients-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .clients-search {
+    background-color: #c0c0c02b;
+    border-radius: 15px;
+    margin: 2% 30%;
+    width: 40%;
+  }
+
+  .search-input {
+    border-radius: 5px;
+    height: 20px;
+    width: 30vh;
+  }
 }
