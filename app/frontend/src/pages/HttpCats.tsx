@@ -11,9 +11,7 @@ export default function HttpCats() {
     <>
       <Header />
     
-      <main>
-        <h3>Http Cats</h3>
-
+      <main className='main-container-cats'>
         <input
           className='http-status-input'
           type='number'

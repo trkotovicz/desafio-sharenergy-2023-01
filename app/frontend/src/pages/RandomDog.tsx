@@ -19,9 +19,7 @@ export default function RandomDog() {
     <>
       <Header />
 
-      <main>
-        <h3>Random Dog</h3>
-
+      <main className='main-container-dogs'>
         <button
           className='refresh-btn'
           type='button'
@@ -32,7 +30,7 @@ export default function RandomDog() {
 
         {
         (dog.includes('.webm') || dog.includes('.mp4')) ?
-          ( <video className='dog-img' src={ dog } /> ) :
+          ( <video controls autoPlay className='dog-img' src={ dog } /> ) :
           ( <img className='dog-img' src={dog} alt='random dog' /> )
         }
       </main>
