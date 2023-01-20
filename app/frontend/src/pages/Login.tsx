@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import HeaderLogin from '../components/HeaderLogin';
 import { userLogin, userRegister } from '../services/apiRequests';
 import { saveUserLocalStorage } from '../services/localStorage';
 import { saveUserSession } from '../services/sessionStorage';
@@ -17,8 +18,8 @@ export default function Login() {
   const handleClickLogin = async () => {
     try {
       const userData = await userLogin({ username, password });
-      rememberMe ? saveUserLocalStorage(userData) : saveUserSession(userData)
-      navigate('/random-users')
+      rememberMe ? saveUserLocalStorage(userData) : saveUserSession(userData);
+      navigate('/random-users');
     } catch (error) {
       setShowHiddenLogin(true);
     }
@@ -40,86 +41,88 @@ export default function Login() {
   }
 
   return (
-    <form className='login-form'>
+    <div className='main'>
+      <HeaderLogin />
 
-      <div className='input-container'>
-        <label htmlFor='username' className='username-label'>
-            USERNAME
-            <br />
-            <input
-              className='username-input'
-              type='text'
-              id='username'
-              placeholder='username'
-              value={ username }
-              onChange={ ({target}) => setUsername(target.value) }
-              required
-            />
-          </label>
-          <label htmlFor='password' className='password-label'>
-            PASSWORD
-            <br />
-            <input
-              className='password-input'
-              type='password'
-              id='password'
-              placeholder='password'
-              value={ password }
-              onChange={ ({target}) => setPassword(target.value) }
-              required
-            />
-          </label>
-
-          <div className='remember-container'>
-            <label htmlFor='remember' className='remember-label'>
+      <form className='login-form'>
+        <div className='input-container'>
+          <label htmlFor='username' className='username-label'>
+              USERNAME
+              <br />
               <input
-                className='remember-input'
-                type='checkbox'
-                id='remember'
-                onChange={ () => setRememberMe(true) }
-              />
-                {' '}
-                Remember Me
+                type='text'
+                id='username'
+                placeholder='username'
+                value={ username }
+                onChange={ ({target}) => setUsername(target.value) }
+                required
+                />
             </label>
-          </div>
+            <label htmlFor='password' className='password-label'>
+              PASSWORD
+              <br />
+              <input
+                type='password'
+                id='password'
+                placeholder='password'
+                value={ password }
+                onChange={ ({target}) => setPassword(target.value) }
+                required
+                />
+            </label>
 
-          {showHiddenLogin ? (
-            <span className='span-login-invalid'>
-              Invalid username or password
-            </span>
-          ) : ''}
+            <div className='remember-container'>
+              <label htmlFor='remember' className='remember-label'>
+                <input
+                  className='remember-input'
+                  type='checkbox'
+                  id='remember'
+                  onChange={ () => setRememberMe(true) }
+                  />
+                  {' '}
+                  Remember Me
+              </label>
+            </div>
 
-          {conflictRegister ? (
-            <span className='span-register-conflict'>
-              Username is already in use
-            </span>
-          ) : ''}
+            {showHiddenLogin ? (
+              <span className='span-login-invalid'>
+                Invalid username or password
+              </span>
+            ) : ''}
 
-          {successRegister ? (
-            <span className='span-register-success'>
-              User successfully created
-            </span>
-          ) : ''}
+            {conflictRegister ? (
+              <span className='span-register-conflict'>
+                Username is already in use
+              </span>
+            ) : ''}
 
-      </div>
+            {successRegister ? (
+              <span className='span-register-success'>
+                User successfully created
+              </span>
+            ) : ''}
 
-      <div className="btn-container">
-        <button
-          className='login-btn'
-          type='button'
-          disabled={ isValid() }
-          onClick={ handleClickLogin }
-          >
-          LOGIN
-        </button>
-        <button
-          className='register-btn'
-          type='button'
-          onClick={ handleClickRegister }
-          >
-          REGISTER
-        </button>
-      </div>
-    </form>
+        </div>
+
+        <div className="btn-container">
+          <button
+            className='login-btn'
+            type='button'
+            disabled={ isValid() }
+            onClick={ handleClickLogin }
+            >
+            LOGIN
+          </button>
+          <button
+            className='register-btn'
+            type='button'
+            onClick={ handleClickRegister }
+            >
+            REGISTER
+          </button>
+        </div>
+
+      </form>
+    </div>
   )
 }

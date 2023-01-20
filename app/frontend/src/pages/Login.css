@@ -1,8 +1,16 @@
+.main {
+  font-size: large;
+}
+
 .login-form {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 50px;
+  margin: 40px;
+  padding: 5vh;
+  background-color: rgba(126, 126, 126, 0.328);
+  border-radius: 20px;
+  box-shadow: 5px 4px #888888;
 }
 
 .input-container, .btn-container {
@@ -13,6 +21,18 @@
   text-align: center;
 }
 
-input, button {
-  margin: 8px;
+.remember-container {
+  font-size: 16px;
+  padding: 8px;
 }
+
+input, button {
+  text-align: center;
+  margin: 8px;
+  padding: 4px;
+}
+
+.span-login-invalid {
+  color: red;
+}
+

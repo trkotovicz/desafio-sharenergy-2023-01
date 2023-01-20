@@ -8,15 +8,17 @@ import RandomUsers from './pages/RandomUsers';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={ <Login /> } />
-        <Route path="/clients-api" element={ <Clients /> } />
-        <Route path="/random-users" element={ <RandomUsers /> } />
-        <Route path="/http-cats" element={ <HttpCats /> } />
-        <Route path="/random-dog" element={ <RandomDog /> } />
-      </Routes>
-    </BrowserRouter>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <Login /> } />
+          <Route path="/clients-api" element={ <Clients /> } />
+          <Route path="/random-users" element={ <RandomUsers /> } />
+          <Route path="/http-cats" element={ <HttpCats /> } />
+          <Route path="/random-dog" element={ <RandomDog /> } />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
