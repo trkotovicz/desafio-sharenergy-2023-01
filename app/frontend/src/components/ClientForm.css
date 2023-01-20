@@ -1,0 +1,8 @@
+.form-client {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}

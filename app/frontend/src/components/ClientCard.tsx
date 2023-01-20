@@ -1,4 +1,5 @@
 import IClient from '../interfaces/IClient';
+import './ClientCard.css';
 
 type ClientCardProps = {
   client: IClient

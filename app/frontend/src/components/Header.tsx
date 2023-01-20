@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { removeUserLocalStorage } from '../services/localStorage';
 import { removeUserSession } from '../services/sessionStorage';
 import logo_color from '../assets/images/logo_color.png';
+import './Header.css';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -13,8 +14,10 @@ export default function Header() {
   }
 
   return (
-    <>
-      <img src={logo_color} width='200px' alt='sharenergy logo' />
+    <main className='header-container'>
+
+      <img className='logo-img' src={logo_color} width='200px' alt='sharenergy logo' />
+
       <div className='links-container'>
         <Link to={"/random-users"}>Random Users</Link>
         <Link to={"/http-cats"}>HTTP Cats</Link>
@@ -25,6 +28,8 @@ export default function Header() {
       <button className='logout-btn' onClick={ () => handleLogout() }>
         LOGOUT
       </button>
-    </>
+
+    </main>
+
   )
 }

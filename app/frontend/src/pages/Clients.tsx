@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import IClient from "../interfaces/IClient";
 import { clientsList, createNewClient, deleteClient, getClientByName, updateClientRequest, userToken } from '../services/apiRequests';
 import { getUserSession } from "../services/sessionStorage";
+import './Clients.css';
 
 export default function Clients() {
   const [clients, setClients] = useState<IClient[] | null>([]);

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import IUserCard from '../interfaces/IUserCard';
 import { fetchRandomUsers } from '../services/randomUsersApi';
+import './RandomUsers.css';
 
 export default function RandomUsers() {
   const [users, setUsers] = useState<IUserCard | any>([]);
@@ -40,7 +41,7 @@ export default function RandomUsers() {
     <>
       <Header />
     
-      <main>
+      <main className='main-random-users'>
         <h3>Random Users API</h3>
 
         <div className='search-container'>
@@ -67,7 +68,7 @@ export default function RandomUsers() {
         <div className='users-container'>
           { users?.map((user: IUserCard) => (
             <div className='user-card' key={ user.login.uuid }>
-              <img src={ user.picture.large } alt='profile' />
+              <img className='user-avatar' src={ user.picture.large } alt='profile' />
               <p>{ `${user.name.first} ${user.name.last}`}</p>
               <p>{ user.email }</p>
               <p>{ user.login.username }</p>

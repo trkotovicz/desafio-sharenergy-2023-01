@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from '../components/Header';
+import './HttpCats.css';
 
 export default function HttpCats() {
   const [status, setStatus] = useState('418');

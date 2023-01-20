@@ -1,5 +1,6 @@
 import IClient from "../interfaces/IClient"
 import { useState, useEffect } from 'react';
+import './ClientForm.css';
 
 type ClientFormProps = {
   client: IClient
@@ -29,7 +30,7 @@ export default function ClientForm({ client, handleNewClientBtn, handleUpdateCli
   return (
     <form className="form-client">
       <label htmlFor='name'>
-        Name
+        {/* Name */}
         <input
           className='name-input'
           type='text'
@@ -39,17 +40,17 @@ export default function ClientForm({ client, handleNewClientBtn, handleUpdateCli
         />
       </label>
       <label htmlFor='email'>
-        Email
+        {/* Email */}
         <input
           className='email-input'
           type='email'
-          placeholder='email'
+          placeholder='Email'
           value={ email }
           onChange={ (event) => setEmail(event.target.value) }
         />
       </label>
       <label htmlFor='phone'>
-        Phone
+        {/* Phone */}
         <input
           className='phone-input'
           type='tel'
@@ -59,7 +60,7 @@ export default function ClientForm({ client, handleNewClientBtn, handleUpdateCli
         />
       </label>
       <label htmlFor='address'>
-        Address
+        {/* Address */}
         <input
           className='address-input'
           type='text'
@@ -69,7 +70,7 @@ export default function ClientForm({ client, handleNewClientBtn, handleUpdateCli
         />
       </label>
       <label htmlFor='cpf'>
-        CPF
+        {/* CPF */}
         <input
           className='cpf-input'
           type='text'

@@ -1,0 +1,28 @@
+.main-random-users {
+  align-items: center;
+  background-color: #00000026;
+  text-align: center;
+}
+
+.users-container {
+  align-items: center;
+  background-color: #00000026;
+  text-align: center;
+}
+
+.search-container {
+  background-color: #00000026;
+}
+
+.user-card {
+  background-color: rgba(126, 126, 126, 0.328);
+  border-radius: 20px;
+  box-shadow: 5px 4px #888888;
+  padding: 10px;
+  margin: 20px 40px;
+}
+
+.user-avatar {
+  border-radius: 100px;
+  box-shadow: 2px 2px 2px 2px #D6DF28;
+}
