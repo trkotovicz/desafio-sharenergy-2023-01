@@ -72,7 +72,6 @@ export default function Clients() {
 
       <div className='clients-search'>
         <label htmlFor='search'>
-          Search
           <input
             className='search-input'
             type='text'
@@ -96,7 +95,7 @@ export default function Clients() {
           <ClientCard
             client={client}
             handleDeleteBtn={ handleDeleteBtn }
-            handleUpdateBtn={ handleUpdateBtnCard } 
+            handleUpdateBtn={ handleUpdateBtnCard }
             key={client._id}
           />
         ))}

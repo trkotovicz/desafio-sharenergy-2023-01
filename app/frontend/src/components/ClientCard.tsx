@@ -10,15 +10,15 @@ type ClientCardProps = {
 export default function ClientCard({ client, handleDeleteBtn, handleUpdateBtn }: ClientCardProps) {
   return (
     <div className='client-card'>
-      <p>Name: {client.name}</p>
-      <p>E-mail: {client.email}</p>
+      <p>{client.name}</p>
+      <p>{client.email}</p>
       <p>Phone: {client.phone}</p>
       <p>Address: {client.address}</p>
       <p>CPF: {client.cpf}</p>
-      <button type='button' onClick={ () => handleUpdateBtn(client) }>
+      <button type='button' id='update-btn' onClick={ () => handleUpdateBtn(client) }>
         UPDATE
       </button>
-      <button type='button' onClick={ () => handleDeleteBtn(client._id) }>
+      <button type='button' id='delete-btn' onClick={ () => handleDeleteBtn(client._id) }>
         DELETE
       </button>
     </div>
