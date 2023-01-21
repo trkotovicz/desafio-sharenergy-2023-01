@@ -32,6 +32,10 @@ Para acessar a aplicação, você pode usar os dados de login abaixo, ou criar u
 
 Com a aplicação rodando acesse a documentação da API em `http://localhost:3001/docs/#/`. </br>
 
+## Vídeo da Aplicação 📹 🚨
+
+Para assistir a apresentação da aplicação [clique aqui.](https://youtu.be/KeHxjZK4mHs) 📹
+
 # O Desafio
 
 - A página inicial da aplicação deve ser uma `Login Page`;
